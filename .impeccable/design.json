@@ -1,0 +1,814 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-19T17:14:27+00:00",
+  "title": "Design System: SignalsGym",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Cool Ground",
+        "cssVar": "--ground",
+        "canonical": "oklch(97.3% 0.007 268.5)",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#242529",
+          "#404246",
+          "#5f6165",
+          "#808287",
+          "#a3a5aa",
+          "#c7c9ce",
+          "#eceef3"
+        ],
+        "darkToken": "ground-dark",
+        "purpose": "Cool-gray page ground under white cards: separates cards in daylight without heavy borders; an all-white page reads as plain."
+      },
+      "card": {
+        "role": "neutral",
+        "displayName": "Card White",
+        "cssVar": "--card",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ],
+        "darkToken": "card-dark"
+      },
+      "sunk": {
+        "role": "neutral",
+        "displayName": "Sunk Gray",
+        "cssVar": "--sunk",
+        "canonical": "oklch(95.2% 0.010 267.4)",
+        "tonalRamp": [
+          "#090b0f",
+          "#23252a",
+          "#404247",
+          "#5f6167",
+          "#808288",
+          "#a2a5ab",
+          "#c6c9d0",
+          "#ebeef5"
+        ],
+        "darkToken": "sunk-dark"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Soft Line",
+        "cssVar": "--line",
+        "canonical": "oklch(92.2% 0.014 268.5)",
+        "tonalRamp": [
+          "#090b11",
+          "#22252c",
+          "#3f424a",
+          "#5e616a",
+          "#7f828b",
+          "#a1a5ae",
+          "#c5c9d3",
+          "#eaeef8"
+        ],
+        "darkToken": "line-dark"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "cssVar": "--ink",
+        "canonical": "oklch(25.0% 0.036 276.6)",
+        "tonalRamp": [
+          "#080a18",
+          "#202336",
+          "#3e4152",
+          "#5d606f",
+          "#7f828d",
+          "#a3a4ad",
+          "#c8c9cd",
+          "#edeef2"
+        ],
+        "darkToken": "ink-dark"
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink Muted",
+        "cssVar": "--ink-2",
+        "canonical": "oklch(47.6% 0.038 275.3)",
+        "tonalRamp": [
+          "#090a14",
+          "#212432",
+          "#3d4154",
+          "#5b6077",
+          "#7d8195",
+          "#a0a4b5",
+          "#c5c8d6",
+          "#eceef7"
+        ],
+        "darkToken": "ink-2-dark"
+      },
+      "go": {
+        "role": "primary",
+        "displayName": "Go Green",
+        "cssVar": "--go",
+        "canonical": "oklch(64.4% 0.165 150.8)",
+        "tonalRamp": [
+          "#001003",
+          "#002e11",
+          "#075024",
+          "#0a7537",
+          "#1a9b4e",
+          "#54be74",
+          "#8ce0a0",
+          "#c8ffd3"
+        ]
+      },
+      "go-edge": {
+        "role": "primary",
+        "displayName": "Go Edge",
+        "cssVar": "--go-edge",
+        "canonical": "oklch(52.8% 0.134 151.0)",
+        "tonalRamp": [
+          "#001003",
+          "#002e11",
+          "#015024",
+          "#0d7539",
+          "#44965c",
+          "#76b786",
+          "#a5d8b0",
+          "#d5fadc"
+        ]
+      },
+      "go-tint": {
+        "role": "primary",
+        "displayName": "Go Tint",
+        "cssVar": "--go-tint",
+        "canonical": "oklch(95.8% 0.027 157.4)",
+        "tonalRamp": [
+          "#0a0c0a",
+          "#232624",
+          "#404341",
+          "#5d635f",
+          "#7c857f",
+          "#9ca9a1",
+          "#becec3",
+          "#e1f4e7"
+        ],
+        "darkToken": "go-tint-dark"
+      },
+      "good-ink": {
+        "role": "primary",
+        "displayName": "Good Ink",
+        "cssVar": "--good-ink",
+        "canonical": "oklch(50.9% 0.133 150.5)",
+        "tonalRamp": [
+          "#001002",
+          "#002e11",
+          "#005022",
+          "#0b7537",
+          "#48955d",
+          "#79b686",
+          "#a8d7b1",
+          "#d7f9dd"
+        ],
+        "darkToken": "good-ink-dark"
+      },
+      "bad": {
+        "role": "secondary",
+        "displayName": "Miss Red",
+        "cssVar": "--bad",
+        "canonical": "oklch(62.6% 0.193 23.0)",
+        "tonalRamp": [
+          "#200001",
+          "#49070d",
+          "#771b20",
+          "#a82f34",
+          "#dc4449",
+          "#fc7472",
+          "#ffb2ae",
+          "#fee9e7"
+        ]
+      },
+      "bad-edge": {
+        "role": "secondary",
+        "displayName": "Bad Edge",
+        "cssVar": "--bad-edge",
+        "canonical": "oklch(52.4% 0.170 22.2)",
+        "tonalRamp": [
+          "#200001",
+          "#4d000a",
+          "#7a141e",
+          "#aa2b34",
+          "#cd5758",
+          "#e88481",
+          "#fdb3b0",
+          "#ffe8e7"
+        ]
+      },
+      "bad-tint": {
+        "role": "secondary",
+        "displayName": "Bad Tint",
+        "cssVar": "--bad-tint",
+        "canonical": "oklch(94.8% 0.023 17.6)",
+        "tonalRamp": [
+          "#0d0b0b",
+          "#272424",
+          "#444141",
+          "#665f5f",
+          "#898080",
+          "#afa1a1",
+          "#d6c4c4",
+          "#fee9e9"
+        ],
+        "darkToken": "bad-tint-dark"
+      },
+      "bad-ink": {
+        "role": "secondary",
+        "displayName": "Bad Ink",
+        "cssVar": "--bad-ink",
+        "canonical": "oklch(50.2% 0.180 24.3)",
+        "tonalRamp": [
+          "#200001",
+          "#4d0007",
+          "#7f0615",
+          "#b02129",
+          "#ce5653",
+          "#e9847e",
+          "#fdb3ae",
+          "#ffe9e7"
+        ],
+        "darkToken": "bad-ink-dark"
+      },
+      "xp": {
+        "role": "tertiary",
+        "displayName": "XP Gold",
+        "cssVar": "--xp",
+        "canonical": "oklch(78.5% 0.164 75.0)",
+        "tonalRamp": [
+          "#110a02",
+          "#322209",
+          "#583c0e",
+          "#815811",
+          "#ad7612",
+          "#db950f",
+          "#fdbb58",
+          "#feebd2"
+        ]
+      },
+      "flame": {
+        "role": "tertiary",
+        "displayName": "Streak Flame",
+        "cssVar": "--flame",
+        "canonical": "oklch(72.4% 0.187 48.9)",
+        "tonalRamp": [
+          "#170601",
+          "#3e1903",
+          "#692f06",
+          "#98460c",
+          "#ca5f13",
+          "#fe791a",
+          "#ffb690",
+          "#ffeadf"
+        ],
+        "purpose": "Daily streak only (top-bar pill, Day streak tile). Combo uses the bolt in --combo."
+      },
+      "combo": {
+        "role": "tertiary",
+        "displayName": "Combo Teal",
+        "cssVar": "--combo",
+        "canonical": "oklch(63.2% 0.107 191.6)",
+        "tonalRamp": [
+          "#000f0e",
+          "#012c2a",
+          "#004d4b",
+          "#0c706d",
+          "#079692",
+          "#53b8b4",
+          "#8cdad5",
+          "#c1fcf8"
+        ],
+        "darkToken": "combo-dark",
+        "purpose": "Combo bolt and counter only (.sbar .meta.combo, .f-combo .ic); sits outside the lecture, streak, XP and answer colors."
+      },
+      "l5": {
+        "role": "tertiary",
+        "displayName": "L5 Sky",
+        "cssVar": "--l5",
+        "canonical": "oklch(59.5% 0.153 248.0)",
+        "tonalRamp": [
+          "#000c1e",
+          "#012745",
+          "#014474",
+          "#0464a7",
+          "#2187d7",
+          "#60abf0",
+          "#9fcffd",
+          "#e2f0ff"
+        ],
+        "darkToken": "l5-dark"
+      },
+      "l6": {
+        "role": "tertiary",
+        "displayName": "L6 Pink",
+        "cssVar": "--l6",
+        "canonical": "oklch(59.9% 0.198 359.5)",
+        "tonalRamp": [
+          "#1f000a",
+          "#490123",
+          "#761240",
+          "#a7275e",
+          "#d83f7f",
+          "#f474a2",
+          "#feafc7",
+          "#ffe8ee"
+        ],
+        "darkToken": "l6-dark"
+      },
+      "l7": {
+        "role": "tertiary",
+        "displayName": "L7 Tangerine",
+        "cssVar": "--l7",
+        "canonical": "oklch(63.8% 0.168 48.7)",
+        "tonalRamp": [
+          "#1a0400",
+          "#401700",
+          "#6b2d01",
+          "#9b4400",
+          "#cc5e0a",
+          "#ee8549",
+          "#feb690",
+          "#ffeadf"
+        ],
+        "darkToken": "l7-dark"
+      },
+      "l8": {
+        "role": "tertiary",
+        "displayName": "L8 Violet",
+        "cssVar": "--l8",
+        "canonical": "oklch(53.7% 0.227 285.6)",
+        "tonalRamp": [
+          "#0c0030",
+          "#250964",
+          "#402399",
+          "#5e3ed1",
+          "#7c66f5",
+          "#9e96fb",
+          "#c3c2fe",
+          "#ecedfe"
+        ],
+        "darkToken": "l8-dark",
+        "purpose": "Lecture 8; also the selected-ungraded choice and the Practice-test bubble."
+      },
+      "on-fill": {
+        "role": "neutral",
+        "displayName": "On Fill",
+        "purpose": "Literal #fff on green, red and lecture fills; not a CSS variable in the build."
+      },
+      "ground-dark": {
+        "role": "neutral",
+        "displayName": "Cool Ground (dark)",
+        "theme": "dark",
+        "cssVar": "--ground",
+        "lightToken": "ground"
+      },
+      "card-dark": {
+        "role": "neutral",
+        "displayName": "Card White (dark)",
+        "theme": "dark",
+        "cssVar": "--card",
+        "lightToken": "card"
+      },
+      "sunk-dark": {
+        "role": "neutral",
+        "displayName": "Sunk Gray (dark)",
+        "theme": "dark",
+        "cssVar": "--sunk",
+        "lightToken": "sunk"
+      },
+      "line-dark": {
+        "role": "neutral",
+        "displayName": "Soft Line (dark)",
+        "theme": "dark",
+        "cssVar": "--line",
+        "lightToken": "line"
+      },
+      "ink-dark": {
+        "role": "neutral",
+        "displayName": "Ink (dark)",
+        "theme": "dark",
+        "cssVar": "--ink",
+        "lightToken": "ink"
+      },
+      "ink-2-dark": {
+        "role": "neutral",
+        "displayName": "Ink Muted (dark)",
+        "theme": "dark",
+        "cssVar": "--ink-2",
+        "lightToken": "ink-2"
+      },
+      "go-tint-dark": {
+        "role": "primary",
+        "displayName": "Go Tint (dark)",
+        "theme": "dark",
+        "cssVar": "--go-tint",
+        "lightToken": "go-tint"
+      },
+      "good-ink-dark": {
+        "role": "primary",
+        "displayName": "Good Ink (dark)",
+        "theme": "dark",
+        "cssVar": "--good-ink",
+        "lightToken": "good-ink"
+      },
+      "bad-tint-dark": {
+        "role": "secondary",
+        "displayName": "Bad Tint (dark)",
+        "theme": "dark",
+        "cssVar": "--bad-tint",
+        "lightToken": "bad-tint"
+      },
+      "bad-ink-dark": {
+        "role": "secondary",
+        "displayName": "Bad Ink (dark)",
+        "theme": "dark",
+        "cssVar": "--bad-ink",
+        "lightToken": "bad-ink"
+      },
+      "l5-dark": {
+        "role": "tertiary",
+        "displayName": "L5 Sky (dark)",
+        "theme": "dark",
+        "cssVar": "--l5",
+        "lightToken": "l5"
+      },
+      "l6-dark": {
+        "role": "tertiary",
+        "displayName": "L6 Pink (dark)",
+        "theme": "dark",
+        "cssVar": "--l6",
+        "lightToken": "l6"
+      },
+      "l7-dark": {
+        "role": "tertiary",
+        "displayName": "L7 Tangerine (dark)",
+        "theme": "dark",
+        "cssVar": "--l7",
+        "lightToken": "l7"
+      },
+      "l8-dark": {
+        "role": "tertiary",
+        "displayName": "L8 Violet (dark)",
+        "theme": "dark",
+        "cssVar": "--l8",
+        "lightToken": "l8"
+      },
+      "combo-dark": {
+        "role": "tertiary",
+        "displayName": "Combo Teal (dark)",
+        "theme": "dark",
+        "cssVar": "--combo",
+        "lightToken": "combo"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Score Display",
+        "purpose": "Results score number only."
+      },
+      "headline": {
+        "displayName": "Page Headline",
+        "purpose": "Setup and results page titles."
+      },
+      "headline-hero": {
+        "displayName": "Hero Headline",
+        "purpose": "Lecture name in the home hero; max 15ch, balanced."
+      },
+      "title-question": {
+        "displayName": "Question",
+        "purpose": "Question prompt; 26px at 700px and wider."
+      },
+      "title": {
+        "displayName": "Section Title",
+        "purpose": "Section headings; verdict headlines at 20px/1.25."
+      },
+      "title-row": {
+        "displayName": "Row Title",
+        "purpose": "Mode-row and lecture-card names."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Primary button labels."
+      },
+      "choice": {
+        "displayName": "Choice",
+        "purpose": "Answer card text."
+      },
+      "input": {
+        "displayName": "Answer Input",
+        "purpose": "Typed-answer field text."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Base text; Nunito ships 500-900, so 500 is the floor."
+      },
+      "body-strong": {
+        "displayName": "Body Strong",
+        "purpose": "Hero lines, verdict explanations, ledes; 60-68ch."
+      },
+      "stat": {
+        "displayName": "Stat",
+        "purpose": "Streak and XP pills; tabular figures."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Row subtitles, mastery counts, question meta."
+      },
+      "label-sm": {
+        "displayName": "Tag",
+        "purpose": "Status tags (Up next, N to fix, Done)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "soft-lift",
+        "value": "0 1px 2px rgba(29, 32, 51, .06), 0 6px 16px rgba(29, 32, 51, .07)",
+        "purpose": "The one ambient shadow: cards, rows, pills, hero, score, flashcards. CSS var --shadow."
+      },
+      {
+        "name": "soft-lift-dark",
+        "value": "0 1px 2px rgba(0,0,0,.3), 0 6px 16px rgba(0,0,0,.25)",
+        "purpose": "Soft Lift under the dark theme."
+      },
+      {
+        "name": "focus-glow",
+        "value": "0 0 0 4px color-mix(in srgb, var(--l5) 22%, transparent)",
+        "purpose": "Typed-answer field on focus, with an L5 border."
+      },
+      {
+        "name": "pressable-edge",
+        "value": "border-bottom: 5px solid var(--go-edge)",
+        "purpose": "Not a box-shadow: the depth of pressable controls. 5px rest (4px segments/symbol keys, 6px flashcard faces), 2px plus translateY(3px) on press."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 3px solid color-mix(in srgb, var(--go) 70%, var(--ink)); outline-offset: 3px",
+        "purpose": "Global :focus-visible ring, 12px radius."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Default ease-out (CSS var --ease): pop, rise, progress fill, toast."
+      },
+      {
+        "name": "press",
+        "value": "80ms (transform, border-bottom-width)",
+        "purpose": "Button and choice press compression."
+      },
+      {
+        "name": "pop",
+        "value": "scale 1 -> 1.35 -> 1, 450ms var(--ease) (400ms on correct choice)",
+        "purpose": "Counters on change, correct answer card."
+      },
+      {
+        "name": "shake",
+        "value": "translateX +/-6px, 350ms",
+        "purpose": "Wrong choice or wrong typed answer."
+      },
+      {
+        "name": "rise",
+        "value": "translateY(14px) + fade, 350ms var(--ease)",
+        "purpose": "Verdict strip entrance."
+      },
+      {
+        "name": "progress-fill",
+        "value": "width 600ms var(--ease)",
+        "purpose": "Lecture mastery bars."
+      },
+      {
+        "name": "card-flip",
+        "value": "rotateY(180deg), 550ms cubic-bezier(.2,.8,.2,1), perspective 1400px",
+        "purpose": "Flashcard flip."
+      },
+      {
+        "name": "confetti-fall",
+        "value": "translateY(260px) rotate(540deg) + fade, 1.6s cubic-bezier(.2,.7,.4,1), 70ms stagger",
+        "purpose": "18 hand-placed pieces (CONFETTI list: x%, y%, rotation) in two top-corner clusters of the score card (x 4-17% and 80-93%, y 6-36%), colored l5, l6, l7, l8, go, xp in turn; staggered (k % 6) * 80ms."
+      },
+      {
+        "name": "toast",
+        "value": "opacity 200ms, transform 300ms var(--ease)",
+        "purpose": "Toast rise from 16px below."
+      },
+      {
+        "name": "view-transition",
+        "value": "180ms",
+        "purpose": "Screen changes via startViewTransition."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce -> all animation and transition none; confetti still rendered at its placed positions (top: var(--y), rotate(var(--r)), opacity .85)",
+        "purpose": "Everything static; confetti stays as the two still corner clusters instead of disappearing."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "column",
+        "value": "600px",
+        "purpose": "Max width of the single centered column (.wrap)."
+      },
+      {
+        "name": "question-lg",
+        "value": "700px",
+        "purpose": "Question prompt grows from 23px to 26px."
+      },
+      {
+        "name": "hover",
+        "value": "(hover: hover) / (hover: none)",
+        "purpose": "Gates choice hover fill and keyboard-shortcut hints."
+      }
+    ],
+    "lectureScope": {
+      "mechanism": "Classes .t-L5..t-L8 set --c to --l5..--l8; components mix from var(--c).",
+      "mixes": {
+        "hero": "13% into card",
+        "include-toggle-pressed": "100% fill, white check",
+        "flashcard-back": "12% fill, 45% border into line",
+        "icon-bubble": "15% into card (--k)",
+        "segment-pressed": "12% L5",
+        "choice-selected": "10% L8"
+      }
+    },
+    "iconography": {
+      "source": "app.js object P plus inline SVG in index.html",
+      "grid": "24x24 viewBox",
+      "stroke": "2.2-3.2px, round caps and joins, currentColor",
+      "duotone": "back layer fill currentColor at opacity .25",
+      "sizes": "18-26px",
+      "set": "arrow, chevron, check, cross, close, target, cards, watch, turn, flame (streak), bolt (combo, in --combo), gem (XP)",
+      "banned": "emoji, icon fonts"
+    },
+    "stickyBars": {
+      "top": "sticky, 88% ground + blur(10px), 64px",
+      "session": "sticky, 90% ground + blur(10px), 64px; replaces top bar in rounds",
+      "flashcard-sort": "sticky bottom, solid ground, padding 12px 16px calc(14px + env(safe-area-inset-bottom)); card min-height = max(face scrollHeight, 300px, viewport room)"
+    }
+  },
+  "components": [
+    {
+      "name": "Go Button",
+      "kind": "button",
+      "refersTo": "button-go",
+      "description": "Primary forward action: green, full-width, 5px darker edge that compresses on press.",
+      "html": "<button class=\"ds-go\">Start round <span class=\"ds-arrow\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span></button>",
+      "css": ".ds-go { font-family: var(--font, \"Nunito\", system-ui, sans-serif); display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 58px; padding: 0 20px; background: var(--go); color: #fff; border: 0; border-radius: 16px; border-bottom: 5px solid var(--go-edge); font-size: 19px; font-weight: 900; letter-spacing: .01em; cursor: pointer; transition: transform .08s, border-bottom-width .08s, filter .15s; } .ds-go .ds-arrow { display: grid; place-items: center; } .ds-go:hover { filter: brightness(1.05); } .ds-go:active { transform: translateY(3px); border-bottom-width: 2px; } .ds-go:focus-visible { outline: 3px solid color-mix(in srgb, var(--go) 70%, var(--ink)); outline-offset: 3px; }"
+    },
+    {
+      "name": "Danger Go Button",
+      "kind": "button",
+      "refersTo": "button-go-danger",
+      "description": "Same pressable build in red, for the 'Still learning' sort.",
+      "html": "<button class=\"ds-go ds-go-bad\">Still learning</button>",
+      "css": ".ds-go { font-family: var(--font, \"Nunito\", system-ui, sans-serif); display: flex; align-items: center; justify-content: center; width: 100%; min-height: 58px; padding: 0 20px; background: var(--go); color: #fff; border: 0; border-radius: 16px; border-bottom: 5px solid var(--go-edge); font-size: 19px; font-weight: 900; cursor: pointer; transition: transform .08s, border-bottom-width .08s, filter .15s; } .ds-go.ds-go-bad { background: var(--bad); border-bottom-color: var(--bad-edge); } .ds-go:hover { filter: brightness(1.05); } .ds-go:active { transform: translateY(3px); border-bottom-width: 2px; } .ds-go:focus-visible { outline: 3px solid color-mix(in srgb, var(--go) 70%, var(--ink)); outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "White pressable button with a soft border edge, for secondary choices.",
+      "html": "<button class=\"ds-btn2\">Review answers</button>",
+      "css": ".ds-btn2 { font-family: var(--font, \"Nunito\", system-ui, sans-serif); display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 54px; padding: 0 16px; border-radius: 16px; background: var(--card); color: var(--ink); border: 2px solid var(--line); border-bottom-width: 5px; font-weight: 800; font-size: 17px; cursor: pointer; transition: transform .08s, border-bottom-width .08s; } .ds-btn2:active { transform: translateY(3px); border-bottom-width: 2px; } .ds-btn2:focus-visible { outline: 3px solid color-mix(in srgb, var(--go) 70%, var(--ink)); outline-offset: 3px; }"
+    },
+    {
+      "name": "Answer Choices",
+      "kind": "custom",
+      "refersTo": "choice",
+      "description": "Signature answer cards: lettered key, pressable edge, instant green/red grading; ungraded leftovers mute text and dim only the key. Selected (ungraded, practice test) uses .ds-selected in L8.",
+      "html": "<div class=\"ds-choices\"><button class=\"ds-choice\"><span class=\"ds-key\">1</span>x[n] is periodic with N = 8</button><button class=\"ds-choice ds-correct\"><span class=\"ds-key\">2</span>Energy signal, E = 4</button><button class=\"ds-choice ds-wrong\"><span class=\"ds-key\">3</span>Power signal, P = 1/2</button><button class=\"ds-choice\" disabled><span class=\"ds-key\">4</span>Neither</button></div>",
+      "css": ".ds-choices { display: grid; gap: 10px; } .ds-choice { font-family: var(--font, \"Nunito\", system-ui, sans-serif); display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 14px; width: 100%; min-height: 64px; text-align: left; background: var(--card); color: var(--ink); border: 2px solid var(--line); border-bottom-width: 5px; border-radius: 16px; padding: 10px 14px 10px 10px; font-size: 18px; font-weight: 700; cursor: pointer; transition: transform .08s, border-color .15s, background .15s; } .ds-choice .ds-key { width: 40px; height: 40px; border-radius: 12px; border: 2px solid var(--line); display: grid; place-items: center; font-weight: 900; font-size: 16px; color: var(--ink-2); } .ds-choice:disabled { cursor: default; } .ds-choice:hover:not(:disabled) { background: var(--sunk); } .ds-choice:disabled:not(.ds-correct):not(.ds-wrong):not(.ds-selected) { color: var(--ink-2); border-color: color-mix(in srgb, var(--line) 60%, transparent); } .ds-choice:disabled:not(.ds-correct):not(.ds-wrong):not(.ds-selected) .ds-key { opacity: .45; } .ds-choice:active:not(:disabled) { transform: translateY(3px); border-bottom-width: 2px; } .ds-choice:focus-visible { outline: 3px solid color-mix(in srgb, var(--go) 70%, var(--ink)); outline-offset: 3px; } .ds-choice.ds-selected { border-color: var(--l8); background: color-mix(in srgb, var(--l8) 10%, var(--card)); } .ds-choice.ds-selected .ds-key { border-color: var(--l8); color: var(--l8); } .ds-choice.ds-correct { border-color: var(--go); background: var(--go-tint); color: var(--good-ink); } .ds-choice.ds-correct .ds-key { background: var(--go); border-color: var(--go); color: #fff; } .ds-choice.ds-wrong { border-color: var(--bad); background: var(--bad-tint); color: var(--bad-ink); } .ds-choice.ds-wrong .ds-key { background: var(--bad); border-color: var(--bad); color: #fff; }"
+    },
+    {
+      "name": "Answer Field",
+      "kind": "input",
+      "refersTo": "input-answer",
+      "description": "Typed numeric/expression answer, L5 focus glow.",
+      "html": "<div class=\"ds-answer\"><input class=\"ds-input\" placeholder=\"Type your answer\" aria-label=\"Answer\"></div>",
+      "css": ".ds-input { font-family: var(--font, \"Nunito\", system-ui, sans-serif); width: 100%; font-size: 22px; font-weight: 800; padding: 14px 16px; min-height: 62px; border-radius: 16px; border: 2px solid var(--line); background: var(--card); color: var(--ink); } .ds-input::placeholder { color: var(--ink-2); font-weight: 600; } .ds-input:focus { outline: none; border-color: var(--l5); box-shadow: 0 0 0 4px color-mix(in srgb, var(--l5) 22%, transparent); }"
+    },
+    {
+      "name": "Lecture Card",
+      "kind": "card",
+      "refersTo": "lecture-card",
+      "description": "Lecture row: a start-round button (badge, name, mastery bar, meta with tag) plus a 40px include toggle filled in the lecture hue when on.",
+      "html": "<div class=\"ds-lec ds-t-l5\"><button class=\"ds-lec-go\"><span class=\"ds-badge\">L5</span><span class=\"ds-lec-body\"><b>DTS basics, periodicity, energy &amp; power</b><span class=\"ds-bar\"><span style=\"width:67%\"></span></span><span class=\"ds-lec-meta\"><small>18 of 27 mastered</small><span class=\"ds-tag ds-next\">Up next</span></span></span></button><button class=\"ds-incl\" aria-pressed=\"true\" aria-label=\"Include Lecture 5 in rounds\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12.5l4.5 4.5L19 7.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button></div><div class=\"ds-lec ds-t-l7 ds-off\"><button class=\"ds-lec-go\"><span class=\"ds-badge\">L7</span><span class=\"ds-lec-body\"><b>Signal operations</b><span class=\"ds-bar\"><span style=\"width:50%\"></span></span><span class=\"ds-lec-meta\"><small>12 of 24 mastered</small></span></span></button><button class=\"ds-incl\" aria-pressed=\"false\" aria-label=\"Include Lecture 7 in rounds\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12.5l4.5 4.5L19 7.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button></div>",
+      "css": ".ds-t-l5 { --c: var(--l5); } .ds-t-l7 { --c: var(--l7); } .ds-lec { font-family: var(--font, \"Nunito\", system-ui, sans-serif); display: grid; grid-template-columns: 1fr 48px; align-items: center; margin-bottom: 10px; background: var(--card); color: var(--ink); border-radius: 18px; box-shadow: var(--shadow); padding-right: 10px; transition: transform .12s; } .ds-lec:has(.ds-lec-go:hover) { transform: translateY(-1px); } .ds-lec-go { font: inherit; color: inherit; background: none; border: 0; text-align: left; cursor: pointer; display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: center; padding: 14px; width: 100%; } .ds-off .ds-lec-go { opacity: .5; } .ds-badge { display: inline-grid; place-items: center; min-width: 52px; height: 52px; padding: 0 10px; border-radius: 16px; background: var(--c); color: #fff; font-weight: 900; font-size: 22px; } .ds-lec-body b { display: block; font-size: 17px; font-weight: 900; line-height: 1.25; } .ds-bar { display: block; height: 12px; border-radius: 999px; background: var(--sunk); overflow: hidden; margin-top: 8px; } .ds-bar span { display: block; height: 100%; border-radius: 999px; background: var(--c); } .ds-lec-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px; } .ds-lec-meta small { font-size: 14px; color: var(--ink-2); font-weight: 700; } .ds-tag { flex: none; font-size: 13px; font-weight: 900; padding: 2px 10px; border-radius: 999px; white-space: nowrap; } .ds-tag.ds-next { background: var(--go-tint); color: var(--good-ink); } .ds-incl { width: 40px; height: 40px; border-radius: 12px; border: 2px solid var(--line); background: none; display: grid; place-items: center; color: transparent; justify-self: end; cursor: pointer; } .ds-incl[aria-pressed=\"true\"] { background: var(--c); border-color: var(--c); color: #fff; } .ds-lec-go:focus-visible, .ds-incl:focus-visible { outline: 3px solid color-mix(in srgb, var(--go) 70%, var(--ink)); outline-offset: 3px; border-radius: 12px; }"
+    },
+    {
+      "name": "Top Bar",
+      "kind": "nav",
+      "refersTo": "stat-pill",
+      "description": "Sticky translucent bar: stem-plot logo, streak flame and XP gem pills.",
+      "html": "<header class=\"ds-top\"><span class=\"ds-mark\"><span class=\"ds-sq\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><g stroke=\"currentColor\" stroke-width=\"2.6\" stroke-linecap=\"round\"><path d=\"M4 21V9M10 21V13M16 21V6M22 21V15\"/></g><g fill=\"currentColor\"><circle cx=\"4\" cy=\"8\" r=\"2.5\"/><circle cx=\"10\" cy=\"12\" r=\"2.5\"/><circle cx=\"16\" cy=\"5\" r=\"2.5\"/><circle cx=\"22\" cy=\"14\" r=\"2.5\"/></g></svg></span>SignalsGym</span><span class=\"ds-pill ds-flame\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M13.2 2.3c.5 3-1.1 4.8-2.7 6.6C8.9 10.6 7.5 12.3 7.5 15c0 3.6 2.5 6.6 5.2 6.6 3.2 0 5.8-2.7 5.8-6.3 0-2.3-1-4-2.3-5.3.1 1.8-.6 3-1.8 3.6.6-3.8-.6-8.4-1.2-11.3Z\"/></svg>6</span><span class=\"ds-pill ds-xp\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M7 3.5h10l4 5.2L12 21 3 8.7Z\"/><path fill=\"#fff\" opacity=\".45\" d=\"M7 3.5h5L8.6 8.7H3Z\"/></svg>1280</span></header>",
+      "css": ".ds-top { font-family: var(--font, \"Nunito\", system-ui, sans-serif); display: flex; align-items: center; gap: 8px; padding: 10px 16px; min-height: 64px; background: color-mix(in srgb, var(--ground) 88%, transparent); backdrop-filter: blur(10px); color: var(--ink); } .ds-mark { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 20px; letter-spacing: -.01em; margin-right: auto; } .ds-sq { width: 38px; height: 38px; border-radius: 12px; background: var(--go); color: #fff; display: grid; place-items: center; } .ds-pill { display: flex; align-items: center; gap: 5px; min-height: 38px; padding: 8px 12px; border-radius: 999px; background: var(--card); box-shadow: var(--shadow); font-weight: 900; font-size: 16px; font-variant-numeric: tabular-nums; } .ds-pill.ds-flame svg { color: var(--flame); } .ds-pill.ds-xp svg { color: var(--xp); }"
+    },
+    {
+      "name": "Lecture Hero",
+      "kind": "card",
+      "refersTo": "hero-card",
+      "description": "Home hero tinted 13% in the next lecture's hue, with badge, stem-plot art and the Go button.",
+      "html": "<section class=\"ds-hero ds-t-l5\"><svg class=\"ds-art\" width=\"112\" height=\"64\" viewBox=\"0 0 112 64\" aria-hidden=\"true\"><path d=\"M2 58H110\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" opacity=\".35\"/><path d=\"M10 58V22\" stroke=\"currentColor\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><circle cx=\"10\" cy=\"22\" r=\"5.5\" fill=\"currentColor\"/><path d=\"M26 58V36\" stroke=\"currentColor\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><circle cx=\"26\" cy=\"36\" r=\"5.5\" fill=\"currentColor\"/><path d=\"M42 58V12\" stroke=\"currentColor\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><circle cx=\"42\" cy=\"12\" r=\"5.5\" fill=\"currentColor\"/><path d=\"M58 58V40\" stroke=\"currentColor\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><circle cx=\"58\" cy=\"40\" r=\"5.5\" fill=\"currentColor\"/><path d=\"M74 58V26\" stroke=\"currentColor\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><circle cx=\"74\" cy=\"26\" r=\"5.5\" fill=\"currentColor\"/><path d=\"M90 58V46\" stroke=\"currentColor\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><circle cx=\"90\" cy=\"46\" r=\"5.5\" fill=\"currentColor\"/><path d=\"M104 58V34\" stroke=\"currentColor\" stroke-width=\"3.5\" stroke-linecap=\"round\"/><circle cx=\"104\" cy=\"34\" r=\"5.5\" fill=\"currentColor\"/></svg><span class=\"ds-badge\">L5</span><h1>DTS basics, periodicity, energy &amp; power</h1><p>12 questions · your weakest lecture</p><button class=\"ds-go\">Start round</button></section>",
+      "css": ".ds-t-l5 { --c: var(--l5); } .ds-hero { font-family: var(--font, \"Nunito\", system-ui, sans-serif); position: relative; overflow: hidden; border-radius: 24px; padding: 20px; background: color-mix(in srgb, var(--c) 13%, var(--card)); box-shadow: var(--shadow); color: var(--ink); } .ds-hero .ds-art { position: absolute; right: 12px; top: 14px; color: var(--c); opacity: .9; } .ds-badge { display: inline-grid; place-items: center; min-width: 52px; height: 52px; padding: 0 10px; border-radius: 16px; background: var(--c); color: #fff; font-weight: 900; font-size: 22px; } .ds-hero h1 { font-size: 28px; line-height: 1.15; font-weight: 900; margin: 16px 0 4px; letter-spacing: -.01em; max-width: 15ch; text-wrap: balance; } .ds-hero p { margin: 0; color: var(--ink-2); font-weight: 600; } .ds-go { font-family: var(--font, \"Nunito\", system-ui, sans-serif); display: flex; align-items: center; justify-content: center; width: 100%; min-height: 58px; margin-top: 16px; background: var(--go); color: #fff; border: 0; border-radius: 16px; border-bottom: 5px solid var(--go-edge); font-size: 19px; font-weight: 900; cursor: pointer; transition: transform .08s, border-bottom-width .08s, filter .15s; } .ds-go:hover { filter: brightness(1.05); } .ds-go:active { transform: translateY(3px); border-bottom-width: 2px; }"
+    },
+    {
+      "name": "Mode Row",
+      "kind": "card",
+      "refersTo": "mode-row",
+      "description": "Navigating card with a tinted duotone icon bubble, title, subtitle, count and chevron.",
+      "html": "<button class=\"ds-mode ds-k-red\"><span class=\"ds-bub\"><svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\" fill=\"currentColor\" opacity=\".25\"/><circle cx=\"12\" cy=\"12\" r=\"9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/><circle cx=\"12\" cy=\"12\" r=\"4.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.4\"/><circle cx=\"12\" cy=\"12\" r=\"1.6\" fill=\"currentColor\"/></svg></span><span><b>Fix mistakes</b><small>Missed and not yet mastered</small></span><span class=\"ds-end\"><span class=\"ds-count\">6</span><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M9 5.5l6.5 6.5L9 18.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span></button>",
+      "css": ".ds-k-red { --k: var(--bad); } .ds-mode { font-family: var(--font, \"Nunito\", system-ui, sans-serif); display: grid; grid-template-columns: 48px 1fr auto; gap: 14px; align-items: center; width: 100%; min-height: 72px; text-align: left; background: var(--card); color: var(--ink); border: 0; border-radius: 18px; padding: 12px 14px; box-shadow: var(--shadow); cursor: pointer; transition: transform .12s; } .ds-mode:hover { transform: translateY(-1px); } .ds-mode:active { transform: translateY(1px); } .ds-mode:focus-visible { outline: 3px solid color-mix(in srgb, var(--go) 70%, var(--ink)); outline-offset: 3px; } .ds-bub { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: color-mix(in srgb, var(--k) 15%, var(--card)); color: var(--k); } .ds-mode b { display: block; font-size: 18px; font-weight: 900; line-height: 1.2; } .ds-mode small { display: block; font-size: 14px; color: var(--ink-2); font-weight: 600; } .ds-end { display: flex; align-items: center; gap: 4px; color: var(--ink-2); } .ds-count { min-width: 30px; height: 30px; padding: 0 9px; border-radius: 999px; background: var(--bad); color: #fff; font-weight: 900; font-size: 15px; display: grid; place-items: center; }"
+    },
+    {
+      "name": "Verdict Strip",
+      "kind": "custom",
+      "refersTo": "verdict-ok",
+      "description": "Feedback panel that rises in after an answer, with status icon, headline and explanation.",
+      "html": "<div class=\"ds-verdict ds-ok\"><div class=\"ds-strip\"><span class=\"ds-ins\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 12.5l4.5 4.5L19 7.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span><b>Nice! That’s right.</b></div><div class=\"ds-body\"><p>The sum of |x[n]|² converges, so x[n] is an energy signal.</p></div></div>",
+      "css": ".ds-verdict { font-family: var(--font, \"Nunito\", system-ui, sans-serif); border-radius: 20px; padding: 16px; color: var(--ink); animation: ds-rise .35s cubic-bezier(.16, 1, .3, 1) both; } @keyframes ds-rise { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } } .ds-verdict.ds-ok { background: var(--go-tint); } .ds-verdict.ds-no { background: var(--bad-tint); } .ds-strip { display: flex; align-items: center; gap: 12px; } .ds-ins { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; color: #fff; flex: none; } .ds-ok .ds-ins { background: var(--go); } .ds-no .ds-ins { background: var(--bad); } .ds-strip b { font-size: 20px; font-weight: 900; line-height: 1.25; } .ds-ok .ds-strip b { color: var(--good-ink); } .ds-no .ds-strip b { color: var(--bad-ink); } .ds-body { margin-top: 10px; } .ds-body p { margin: 0; max-width: 68ch; font-weight: 600; } @media (prefers-reduced-motion: reduce) { .ds-verdict { animation: none; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Pocket Gym",
+    "overview": "SignalsGym is a training floor that fits in one hand. Every screen is a stack of rounded, softly shadowed white cards on a cool-gray ground, and every action is a chunky, pressable button that physically sinks when tapped. The mood is friendly, upbeat and encouraging: heavy rounded type, saturated but clean color, and small bursts of celebration when the student gets something right. It is the study-app category standard (Gizmo, Duolingo, Quizlet) played straight and finished properly, applied to one student's own DSP reviewer.\n\nColor carries meaning, not decoration. Green means go and correct, red means wrong and to-fix, gold is XP, the orange flame is the daily streak, a teal bolt is the answer combo, and each of the four lectures owns a hue (L5 sky blue, L6 pink, L7 orange, L8 violet) that tints whatever surface is about that lecture. Density is comfortable and thumb-sized: 44px minimum targets, 58px primary buttons, 64px answer cards, and one 600px column even on desktop.\n\nThe world was chosen by the user after a harsh, boxy airport-signage direction was rejected as not fun. It refuses that world (monochrome, sign-like, square, sterile), and it equally refuses the cheap version of its own category: purple gradients, emoji icons and washed-out, low-contrast chips.",
+    "keyCharacteristics": [
+      "White cards on a cool-gray ground (never an all-white page), lifted by one soft two-layer shadow.",
+      "Pressable buttons with a darker 5px bottom edge that compresses to 2px on press.",
+      "Four lecture hues applied through one variable, tinting badges, heroes, include toggles, bars and flashcard backs.",
+      "Self-hosted Nunito, heavy (800 to 900) for everything read at a glance.",
+      "Authored duotone SVG pictograms in currentColor; no emoji, no icon font.",
+      "Celebration on success (pop, confetti), a shake on a miss; under reduced motion everything holds still and the confetti stays as two static corner clusters."
+    ],
+    "rules": [
+      {
+        "name": "The Lecture Owns Its Color Rule",
+        "body": "A surface about one lecture takes that lecture's hue through `--c` and mixes from it; never hard-code a lecture hex into a component. The same four hues also serve as the general accent family: L5 Sky marks focus and selection in setup (pressed segment, focused answer field) and the Flashcards bubble; L8 Violet marks a chosen-but-ungraded choice and the Practice-test bubble.",
+        "section": "colors"
+      },
+      {
+        "name": "The Green Means Go Rule",
+        "body": "Green is reserved for moving forward and for being right. A screen's forward action is the green pressable button; red appears only for wrong answers, mistakes to fix, and the explicit \"still learning\" sort.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gold Is Earned Rule",
+        "body": "Gold and flame orange mark rewards only: XP, mastery done and the daily streak. They never decorate neutral UI.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Flame Rule",
+        "body": "The orange flame means the daily streak and nothing else. The answer combo is the authored bolt in Combo Teal, in the session-bar counter and on the Best combo tile; Combo Teal is used for nothing else.",
+        "section": "colors"
+      },
+      {
+        "name": "The Heavy Heading Rule",
+        "body": "Anything read at a glance (headings, buttons, counts, badges, tags) sets at 800 or 900. Body and explanations stay at 500 to 600; nothing renders below 500.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular Counter Rule",
+        "body": "Every changing number (XP, streak, combo, score, stats, summary values) uses tabular figures so it can pop without the row reflowing.",
+        "section": "typography"
+      },
+      {
+        "name": "The Pressable Edge Rule",
+        "body": "Anything the student presses to act (primary and secondary buttons, answer choices, segments, symbol keys) carries a darker bottom edge (5px; 4px on segments and symbol keys; 6px on flashcard faces) and on press drops 3px while the edge compresses to 2px. Cards that only navigate (mode rows, lecture cards) lift 1px on hover instead, and mode rows sink 1px on press. Information cards and the include toggle never get an edge.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Shadow Rule",
+        "body": "There is one ambient shadow token. Controls with borders do not also take a shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** give every pressable action the bottom edge and the 3px press (The Pressable Edge Rule).",
+      "**Do** scope lecture color through `--c` with `.t-L5` to `.t-L8` and mix tints from it (13% hero, 10 to 12% selection, 15% bubbles).",
+      "**Do** set headings, labels and numbers at 800 to 900 in Nunito, and keep the font self-hosted; the app must work offline.",
+      "**Do** draw icons as authored 24px SVG in currentColor with 2.2 to 3.2px round strokes and a 25%-opacity fill for the duotone layer.",
+      "**Do** keep touch targets at 44px or more and primary buttons at 58px.",
+      "**Do** celebrate correct answers and finished rounds, and make every animation static under `prefers-reduced-motion` (keep the confetti as its still corner clusters rather than removing it).",
+      "**Do** show the combo with the bolt in Combo Teal and keep the flame for the daily streak (The One Flame Rule).",
+      "**Do** keep the page ground cool gray and reserve white for cards.",
+      "**Do** keep light as the default theme and define every new neutral, tint and lecture color for dark as well."
+    ],
+    "donts": [
+      "**Don't** use emoji as icons, or an icon font.",
+      "**Don't** use purple or multi-color gradients as backgrounds or fills; tints are flat color-mixes.",
+      "**Don't** ship low-contrast chips or toggles: unpressed segments keep Ink Muted labels and include toggles keep a visible 2px Soft Line border.",
+      "**Don't** fade a whole disabled choice; mute its text to Ink Muted and dim only its key.",
+      "**Don't** go harsh, monochrome, square or sign-like (the rejected signage world): no square corners, no all-caps signage type, no black-and-yellow bands.",
+      "**Don't** spend green, gold or flame on decoration; they carry go/correct, XP and streak only.",
+      "**Don't** add a second shadow, or put a shadow on a bordered control."
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+# Impeccable working material (reference images are third-party; runtime dirs ignore themselves)
+.impeccable/reference/
+.impeccable/config.local.json
