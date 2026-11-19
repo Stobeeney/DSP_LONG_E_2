@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Start SignalsGym. Open it on this computer or on a phone on the same Wi-Fi.
+# Start the DSP reviewer. Open it on this computer or on a phone on the same Wi-Fi.
 cd "$(dirname "$0")"
 PORT="${1:-8000}"
 IP=$(ip -4 route get 1.1.1.1 2>/dev/null | awk '{for(i=1;i<=NF;i++) if($i=="src") print $(i+1)}')
-echo "SignalsGym running:"
+echo "DSP Reviewer running:"
 echo "  this computer:  http://localhost:$PORT"
 [ -n "$IP" ] && echo "  phone (same Wi-Fi):  http://$IP:$PORT"
 echo "Ctrl+C to stop."

@@ -5,7 +5,7 @@ primary_target: "index.html"
 related_targets: ["app.js","styles.css"]
 ---
 
-# SignalsGym: study app (all screens)
+# DSP Reviewer: study app (all screens)
 
 Scope: the whole single-page app (home, Learn, Practice test, Flashcards, results). Mode: Operate. Phone-first (390px), also usable at desktop width. Light by default (daylight phone use on a commute); dark stays available as a toggle. Keep every question, mode, shortcut and stored progress (localStorage key unchanged).
 

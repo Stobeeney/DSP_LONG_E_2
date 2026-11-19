@@ -1,4 +1,4 @@
-/* SignalsGym · friendly study app (category standard, full craft) */
+/* DSP Reviewer · friendly study app (category standard, full craft) */
 
 @font-face { font-family: "Nunito"; font-style: normal; font-weight: 500 900; font-display: swap;
   src: url("fonts/nunito-latin.woff2") format("woff2");
@@ -28,6 +28,7 @@
   --l5: #1683d4; --l6: #d63a7c; --l7: #d9650e; --l8: #6a48e8;
   --shadow: 0 1px 2px rgba(29, 32, 51, .06), 0 6px 16px rgba(29, 32, 51, .07);
   --r: 18px;
+  --maxw: 600px;
   --font: "Nunito", "Noto Sans", "DejaVu Sans", "Segoe UI", system-ui, sans-serif;
   --ease: cubic-bezier(.16, 1, .3, 1);
   color-scheme: light;
@@ -46,14 +47,15 @@ html, body { margin: 0; }
 html { -webkit-text-size-adjust: 100%; scrollbar-color: var(--line) var(--ground); }
 body {
   background: var(--ground); color: var(--ink); font-family: var(--font); font-size: 17px; line-height: 1.5;
-  min-height: 100vh; caret-color: var(--go); -webkit-tap-highlight-color: transparent;
+  min-height: 100vh; caret-color: var(--go);
+  padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); -webkit-tap-highlight-color: transparent;
 }
 ::selection { background: color-mix(in srgb, var(--go) 30%, transparent); }
 button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; padding: 0; text-align: inherit; }
 button:disabled { cursor: default; }
 :focus-visible { outline: 3px solid color-mix(in srgb, var(--go) 70%, var(--ink)); outline-offset: 3px; border-radius: 12px; }
 svg { display: block; flex: none; }
-.wrap { max-width: 600px; margin: 0 auto; }
+.wrap { max-width: var(--maxw); margin: 0 auto; }
 sub, sup { font-size: .68em; line-height: 0; }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .num { font-variant-numeric: tabular-nums; display: inline-block; }
@@ -69,7 +71,7 @@ sub, sup { font-size: .68em; line-height: 0; }
 .pill.flame svg { color: var(--flame); }
 .pill.xp svg { color: var(--xp); }
 .icon-btn { width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center; color: var(--ink-2); }
-.icon-btn:hover { background: var(--sunk); }
+@media (hover: hover) { .icon-btn:hover { background: var(--sunk); } }
 
 /* ── Primary + secondary buttons ─────── */
 /* impeccable-disable border-accent-on-rounded: pressable bottom edge is the Gizmo/Duolingo button the user chose (PRODUCT.md Brand Commitments) */
@@ -79,7 +81,7 @@ sub, sup { font-size: .68em; line-height: 0; }
   font-size: 19px; font-weight: 900; letter-spacing: .01em; margin-top: 16px; padding: 0 20px;
   transition: transform .08s, border-bottom-width .08s, filter .15s;
 }
-.go:hover { filter: brightness(1.05); }
+@media (hover: hover) { .go:hover { filter: brightness(1.05); } }
 .go:active { transform: translateY(3px); border-bottom-width: 2px; }
 .go .arrow { display: grid; place-items: center; }
 .go.bad { background: var(--bad); border-bottom-color: var(--bad-edge); }
@@ -112,7 +114,7 @@ main { padding-bottom: 48px; }
   background: var(--card); border-radius: var(--r); padding: 12px 14px; box-shadow: var(--shadow); min-height: 72px;
   transition: transform .12s;
 }
-.mode:hover:not(:disabled) { transform: translateY(-1px); }
+@media (hover: hover) { .mode:hover:not(:disabled) { transform: translateY(-1px); } }
 .mode:active:not(:disabled) { transform: translateY(1px); }
 .bub { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: color-mix(in srgb, var(--k) 15%, var(--card)); color: var(--k); }
 .mode b { display: block; font-size: 18px; font-weight: 900; line-height: 1.2; }
@@ -120,14 +122,14 @@ main { padding-bottom: 48px; }
 .mode .end { display: flex; align-items: center; gap: 4px; color: var(--ink-2); }
 .count { min-width: 30px; height: 30px; padding: 0 9px; border-radius: 999px; background: var(--bad); color: #fff; font-weight: 900; font-size: 15px; display: grid; place-items: center; }
 .mode:disabled { opacity: .55; }
-.k-red { --k: var(--bad); } .k-blue { --k: var(--l5); } .k-violet { --k: var(--l8); }
+.k-red { --k: var(--bad); } .k-green { --k: var(--go); } .k-blue { --k: var(--l5); } .k-violet { --k: var(--l8); }
 
 .section { margin-top: 28px; }
 .section h2 { font-size: 21px; font-weight: 900; margin: 0 0 12px; }
 
 .lecs { display: grid; gap: 10px; margin-top: 14px; }
 .lec { display: grid; grid-template-columns: 1fr 48px; align-items: center; background: var(--card); border-radius: var(--r); box-shadow: var(--shadow); padding-right: 10px; transition: transform .12s; }
-.lec:has(.lec-go:hover) { transform: translateY(-1px); }
+@media (hover: hover) { .lec:has(.lec-go:hover) { transform: translateY(-1px); } }
 .lec.off .lec-go { opacity: .5; }
 .lec-go { display: grid; grid-template-columns: 52px 1fr; gap: 14px; align-items: center; padding: 14px; width: 100%; }
 .lec-body b { display: block; font-size: 17px; font-weight: 900; line-height: 1.25; }
@@ -295,3 +297,69 @@ body.in-session > .top { display: none; }
   .confetti i { top: var(--y); opacity: .85; }
 }
 @media (min-width: 700px) { .question { font-size: 26px; } }
+
+/* ── Responsive: phone → tablet → laptop ─────────────────────────────
+   Phone (base): one column, thumb-reach actions.
+   ≥640: two-up lecture cards.
+   ≥768 (tablet / iPad portrait): wider column, mode cards side by side, short answers in a 2×2 grid.
+   ≥1024 (iPad landscape / laptop): home splits into main + sticky side panel; questions and results
+   split into two panes so nothing important needs scrolling. */
+.qside, .qmain, .rmain, .rside, .home-main, .home-side { min-width: 0; }
+
+@media (min-width: 640px) {
+  .lecs { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 768px) {
+  :root { --maxw: 760px; }
+  .home { padding-top: 12px; }
+  .hero { padding: 28px; }
+  .hero h1 { font-size: 34px; max-width: min(18ch, calc(100% - 190px)); }
+  .hero .art { width: 168px; height: 96px; right: 24px; top: 24px; }
+  .hero .go { max-width: 380px; }
+  .modes { grid-template-columns: repeat(2, 1fr); }
+  .mode { grid-template-columns: 1fr auto; grid-template-rows: auto 1fr; align-items: start; gap: 12px; padding: 16px; min-height: 124px; }
+  .mode .bub { grid-column: 1; grid-row: 1; }
+  .mode .end { grid-column: 2; grid-row: 1; }
+  .mode > span:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
+  .question { font-size: 26px; }
+  .page-title { font-size: 38px; }
+  .score .big { font-size: 80px; }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .choices.short { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 1024px) {
+  :root { --maxw: 1120px; }
+  body.in-session { --maxw: 1080px; }
+  body.in-session.narrow { --maxw: 760px; }
+  .top .wrap, .sbar .wrap { padding-left: 24px; padding-right: 24px; }
+  .sbar .wrap { padding-left: 14px; }
+
+  .home { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 28px; align-items: start; padding: 16px 24px 0; }
+  .home-side { position: sticky; top: 80px; }
+  .home-side .section { margin-top: 0; }
+  .home-side .lecs { grid-template-columns: 1fr; }
+  .hero { padding: 32px; }
+  .hero h1 { font-size: 40px; max-width: min(16ch, calc(100% - 230px)); }
+  .hero .art { width: 200px; height: 114px; }
+
+  .qgrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 32px; align-items: start; padding: 0 8px; }
+  .qmain { position: sticky; top: 80px; }
+  .qside { padding-top: 20px; }
+  .qgrid .kbd { grid-column: 1 / -1; }
+  .question { font-size: 30px; }
+
+  .rgrid { display: grid; grid-template-columns: 420px minmax(0, 1fr); gap: 8px 24px; align-items: start; padding: 0 8px; }
+  .rmain { position: sticky; top: 80px; }
+  .rside .section.pad { margin-top: 8px; }
+}
+
+/* short landscape screens (phones turned sideways, small laptops) */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero { padding: 16px 20px; }
+  .hero .art { display: none; }
+  .sbar .wrap, .top .wrap { min-height: 52px; }
+}

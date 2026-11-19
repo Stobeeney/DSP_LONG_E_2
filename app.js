@@ -1,4 +1,4 @@
-/* SignalsGym — CMPE 30244 Discrete-Time Signals reviewer · friendly study app */
+/* DSP Reviewer — CMPE 30244 Discrete-Time Signals reviewer · friendly study app */
 (() => {
   "use strict";
 
@@ -21,6 +21,7 @@
     turn: '<path d="M4.5 12a7.5 7.5 0 0 1 13.2-4.9M19.5 12a7.5 7.5 0 0 1-13.2 4.9M18 3.5V7.5h-4M6 20.5v-4h4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>',
     flame: '<path fill="currentColor" d="M13.2 2.3c.5 3-1.1 4.8-2.7 6.6C8.9 10.6 7.5 12.3 7.5 15c0 3.6 2.5 6.6 5.2 6.6 3.2 0 5.8-2.7 5.8-6.3 0-2.3-1-4-2.3-5.3.1 1.8-.6 3-1.8 3.6.6-3.8-.6-8.4-1.2-11.3Z"/>',
     bolt: '<path fill="currentColor" d="M13.5 2 4.5 13.5h6L9.5 22l9-11.5h-6Z"/>',
+    book: '<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5Z" fill="currentColor" opacity=".25"/><path d="M4 20.5v-15A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5Zm0 0A2.5 2.5 0 0 0 6.5 23H20v-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M8.5 8h7M8.5 11.5h5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
     gem: '<path fill="currentColor" d="M7 3.5h10l4 5.2L12 21 3 8.7Z"/><path fill="#fff" opacity=".45" d="M7 3.5h5L8.6 8.7H3Z"/>',
   };
   const ico = (name, size = 24) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" aria-hidden="true">${P[name]}</svg>`;
@@ -116,7 +117,10 @@
     store.theme = store.theme === "dark" ? "light" : "dark"; applyTheme(); save();
   });
   document.getElementById("homeBtn").addEventListener("click", () => exitSession());
-  const inSession = (on) => document.body.classList.toggle("in-session", on);
+  const inSession = (on, narrow = false) => {
+    document.body.classList.toggle("in-session", on);
+    document.body.classList.toggle("narrow", on && narrow);
+  };
 
   // ───────────── answer checking ─────────────
   const norm = (s) => String(s).toLowerCase().replace(/[−–—]/g, "-").replace(/\s+/g, "").replace(/^\+/, "");
@@ -183,6 +187,7 @@
     const acc = seen ? Math.round((correct / seen) * 100) : null;
     const pct = qs.length ? Math.round((mastered / qs.length) * 100) : 0;
     const mist = mistakeIds().length;
+    const defCount = activeQs().filter((q) => q.def).length;
     nextRound = planNextRound();
 
     const lead = nextRound.lead;
@@ -211,6 +216,7 @@
 
     app.innerHTML = `
       <div class="wrap home">
+        <div class="home-main">
         <section class="hero t-${lead}">
           ${stemArt()}
           <span class="badge" aria-hidden="true">L${lecNum(lead)}</span>
@@ -224,6 +230,11 @@
             <span><b>Fix mistakes</b><small>${mist ? "Missed and not yet mastered" : "Nothing to fix yet"}</small></span>
             <span class="end">${mist ? `<span class="count">${mist}</span>` : ""}${ico("chevron", 20)}</span>
           </button>
+          <button class="mode k-green" data-act="defs" ${defCount ? "" : "disabled"}>
+            <span class="bub">${ico("book", 26)}</span>
+            <span><b>Definitions</b><small>${defCount} concept questions · no solving</small></span>
+            <span class="end">${ico("chevron", 20)}</span>
+          </button>
           <button class="mode k-blue" data-act="flash">
             <span class="bub">${ico("cards", 26)}</span>
             <span><b>Flashcards</b><small>${CONCEPTS.length} concepts · ${QUESTIONS.length} worked examples</small></span>
@@ -235,7 +246,9 @@
             <span class="end">${ico("chevron", 20)}</span>
           </button>
         </div>
+        </div>
 
+        <aside class="home-side">
         <section class="section" aria-labelledby="lecH">
           <h2 id="lecH">Your lectures</h2>
           <p class="hint-line">Tap a lecture to drill it. The check keeps it in your mixed rounds.</p>
@@ -244,6 +257,7 @@
         </section>
 
         <button class="reset" data-act="reset">Reset all progress</button>
+        </aside>
       </div>`;
 
     app.querySelectorAll("[data-topic]").forEach((b) => b.addEventListener("click", () => {
@@ -261,6 +275,10 @@
       startLearn(own.slice(0, LEARN_SIZE).map((q) => q.id), `Lecture ${lecNum(k)} round`);
     });
     app.querySelector('[data-act="flash"]').onclick = () => paint(renderFlashSetup);
+    app.querySelector('[data-act="defs"]').onclick = () => {
+      const defs = shuffle(activeQs().filter((q) => q.def)).sort((a, b) => prog(a.id).level - prog(b.id).level);
+      if (defs.length) startLearn(defs.slice(0, LEARN_SIZE).map((q) => q.id), "Definitions round");
+    };
     app.querySelector('[data-act="quiz"]').onclick = () => paint(renderQuizSetup);
     app.querySelector('[data-act="mistakes"]').onclick = () => { if (mist) startLearn(mistakeIds(), "Fix mistakes"); };
     app.querySelector('[data-act="reset"]').onclick = () => {
@@ -287,7 +305,7 @@
       <button class="icon-btn on-sign" data-x aria-label="Leave and go home">${ico("close", 24)}</button>${inner}</div></div>`;
   }
   function renderQuizSetup() {
-    inSession(true);
+    inSession(true, true);
     const n = activeQs().length;
     const counts = [10, 20, 30].filter((c) => c < n).concat([n]);
     if (!counts.includes(quizCfg.count)) quizCfg.count = counts[0];
@@ -351,7 +369,7 @@
 
     let body = "";
     if (q.type === "mcq") {
-      body = `<div class="choices">${S.choiceOrder.map((ci, k) =>
+      body = `<div class="choices ${q.choices.every((c) => c.length <= 26) ? "short" : ""}">${S.choiceOrder.map((ci, k) =>
         `<button class="choice" data-ci="${ci}"><span class="key">${"ABCD"[k]}</span><span>${fmt(q.choices[ci])}</span></button>`).join("")}</div>`;
     } else if (q.type === "tf") {
       body = `<div class="choices tf">
@@ -367,12 +385,16 @@
     }
     const keys = q.type === "input" ? "<kbd>Enter</kbd> check, then continue" : `<kbd>1</kbd>–<kbd>${q.type === "tf" ? 2 : 4}</kbd> answer · <kbd>Enter</kbd> continue`;
     app.innerHTML = `${sessionBar(`<div class="cells" aria-hidden="true">${cells}</div>${right}`)}
-      <div class="wrap">
+      <div class="wrap qgrid">
+        <div class="qmain">
         <div class="qhead t-${q.topic}"><span class="badge" aria-hidden="true">L${lecNum(q.topic)}</span><span class="t"><b>${esc(where)}</b>${esc(topicName(q.topic))}</span></div>
         <p class="question" id="qtext" data-id="${q.id}">${fmt(q.q)}</p>
+        </div>
+        <div class="qside">
         ${body}
         <div id="fb"></div>
         ${S.mode === "quiz" ? `<button class="link skip" data-skip>Skip this question</button>` : ""}
+        </div>
         <p class="kbd">${keys} · <kbd>Esc</kbd> leave</p>
       </div>`;
 
@@ -515,8 +537,10 @@
     S.finished = true;
     const missed = [...S.missed].map((id) => Q_BY_ID[id]);
     const again = S.title === "Fix mistakes" && mistakeIds().length;
+    inSession(true, !missed.length);
     app.innerHTML = `${sessionBar(`<span class="meta" style="margin-left:auto">${esc(S.title)} complete</span>`)}
-      <div class="wrap">
+      <div class="wrap ${missed.length ? "rgrid" : ""}">
+        <div class="rmain">
         <div class="score">${confettiHTML()}
           <h1>${S.firstTry.size === S.total ? "Clean round. Every answer right first time." : "Round cleared."}</h1>
           <span class="big">${S.firstTry.size}<small>/${S.total}</small></span>
@@ -531,7 +555,8 @@
           <button class="go" data-again><span class="label">${again ? "Fix the rest" : "Next round"}</span><span class="arrow">${ico("arrow", 30)}</span></button>
           <div class="btn-row"><button class="btn2" data-home>Home ${ico("chevron", 18)}</button><button class="btn2" data-flash>Flashcards ${ico("chevron", 18)}</button></div>
         </div>
-        ${missed.length ? `<section class="section pad"><h2>What you missed</h2></section><div class="review">${missed.map((q) => reviewItem(q, false)).join("")}</div>` : ""}
+        </div>
+        ${missed.length ? `<div class="rside"><section class="section pad"><h2>What you missed</h2></section><div class="review">${missed.map((q) => reviewItem(q, false)).join("")}</div></div>` : ""}
       </div>`;
     app.querySelector("[data-x]").onclick = () => exitSession();
     app.querySelector("[data-again]").onclick = () => (again ? startLearn(mistakeIds(), "Fix mistakes") : startLearn());
@@ -548,8 +573,10 @@
     const pct = Math.round((score / S.total) * 100);
     const grade = pct >= 90 ? "Excellent. You're ready for this one." : pct >= 75 ? "Strong. A few gaps left." : pct >= 50 ? "Halfway there. Drill the misses." : "Keep drilling. The misses are below.";
     const wrongIds = S.order.filter((id) => !S.answers[id]?.ok);
+    inSession(true);
     app.innerHTML = `${sessionBar(`<span class="meta" style="margin-left:auto">Practice test · ${fmtTime(S.elapsed)}</span>`)}
-      <div class="wrap">
+      <div class="wrap rgrid">
+        <div class="rmain">
         <div class="score">${pct >= 75 ? confettiHTML() : ""}
           <h1>${grade}</h1>
           <span class="big">${score}<small>/${S.total}</small></span>
@@ -561,8 +588,11 @@
             : `<button class="go" data-retake><span class="label">Take another test</span><span class="arrow">${ico("arrow", 30)}</span></button>`}
           <div class="btn-row">${wrongIds.length ? `<button class="btn2" data-retake>New test ${ico("chevron", 18)}</button>` : ""}<button class="btn2" data-home>Home ${ico("chevron", 18)}</button></div>
         </div>
+        </div>
+        <div class="rside">
         <section class="section pad"><h2>Answer key</h2></section>
         <div class="review">${S.order.map((id) => reviewItem(Q_BY_ID[id], S.answers[id]?.ok, S.answers[id]?.given ?? "(no answer)")).join("")}</div>
+        </div>
       </div>`;
     app.querySelector("[data-x]").onclick = () => exitSession();
     app.querySelector("[data-fix]")?.addEventListener("click", () => startLearn(wrongIds, "Fix mistakes"));
@@ -574,7 +604,7 @@
   // ───────────── FLASHCARDS ─────────────
   let flashDeck = "concepts";
   function renderFlashSetup() {
-    inSession(true);
+    inSession(true, true);
     const nc = activeConcepts().length, nq = activeQs().length;
     app.innerHTML = `${sessionBar(`<span class="meta" style="margin-left:auto">Flashcards</span>`)}
       <div class="wrap">
@@ -604,7 +634,7 @@
     paint(renderFlash);
   }
   function renderFlash() {
-    inSession(true);
+    inSession(true, true);
     const c = S.cards[S.idx];
     const cells = S.cards.length <= 40
       ? `<div class="cells" aria-hidden="true">${S.cards.map((_, k) => `<i class="${k < S.idx ? "done" : k === S.idx ? "now" : ""}"></i>`).join("")}</div>`
@@ -653,6 +683,7 @@
   }
   function renderFlashResults() {
     S.finished = true;
+    inSession(true, true);
     app.innerHTML = `${sessionBar(`<span class="meta" style="margin-left:auto">Deck finished</span>`)}
       <div class="wrap">
         <div class="score">${confettiHTML()}

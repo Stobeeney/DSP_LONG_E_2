@@ -29,7 +29,7 @@ Every question, answer, and explanation is taken from the student's own course r
 - Math is written in Unicode (δ, ω, π, subscripts, superscripts); no math-rendering library. Must work fully offline: no runtime dependency on remote scripts.
 
 ## Brand Commitments
-Name: "SignalsGym" (the current working name). The game layer is central and must stay: XP, daily streak, answer combos, and mastery bars are the motivation loop, in the spirit of Gizmo.
+Name: none shown. On 2026-11-20 the user asked to remove the "SignalsGym" name, so the UI shows only the logo mark, and the page title reads "DSP Reviewer". Do not reintroduce a product name. The game layer is central and must stay: XP, daily streak, answer combos, and mastery bars are the motivation loop, in the spirit of Gizmo.
 
 Visual standard (user's choice, 2026-11-20): the study-app category standard, played straight at full craft. That means a friendly, Gizmo-style app with rounded cards, soft colors, playful touches and pressable buttons. Craft bar: Gizmo (named by the user), Duolingo, Quizlet. A novel world (airport yellow signage) was built and rejected as "too harsh, boxy and plain, not fun"; do not re-propose harsh, monochrome or sign-like worlds.
 

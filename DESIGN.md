@@ -1,5 +1,5 @@
 ---
-name: SignalsGym
+name: DSP Reviewer
 description: A friendly, game-like drill app for the CMPE 30244 discrete-time signals reviewer, phone-first and built for two-minute rounds.
 colors:
   ground: "#f4f6fb"
@@ -306,13 +306,13 @@ components:
     padding: "12px 20px"
 ---
 
-# Design System: SignalsGym
+# Design System: DSP Reviewer
 
 ## Overview
 
 **Creative North Star: "The Pocket Gym"**
 
-SignalsGym is a training floor that fits in one hand. Every screen is a stack of rounded, softly shadowed white cards on a cool-gray ground, and every action is a chunky, pressable button that physically sinks when tapped. The mood is friendly, upbeat and encouraging: heavy rounded type, saturated but clean color, and small bursts of celebration when the student gets something right. It is the study-app category standard (Gizmo, Duolingo, Quizlet) played straight and finished properly, applied to one student's own DSP reviewer.
+The DSP Reviewer is a training floor that fits in one hand. Every screen is a stack of rounded, softly shadowed white cards on a cool-gray ground, and every action is a chunky, pressable button that physically sinks when tapped. The mood is friendly, upbeat and encouraging: heavy rounded type, saturated but clean color, and small bursts of celebration when the student gets something right. It is the study-app category standard (Gizmo, Duolingo, Quizlet) played straight and finished properly, applied to one student's own DSP reviewer.
 
 Color carries meaning, not decoration. Green means go and correct, red means wrong and to-fix, gold is XP, the orange flame is the daily streak, a teal bolt is the answer combo, and each of the four lectures owns a hue (L5 sky blue, L6 pink, L7 orange, L8 violet) that tints whatever surface is about that lecture. Density is comfortable and thumb-sized: 44px minimum targets, 58px primary buttons, 64px answer cards, and one 600px column even on desktop.
 
