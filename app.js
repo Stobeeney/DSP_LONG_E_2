@@ -110,11 +110,39 @@
 
   // ───────────── theme ─────────────
   function applyTheme() {
-    if (store.theme) document.documentElement.setAttribute("data-theme", store.theme);
-    else document.documentElement.removeAttribute("data-theme");
+    const root = document.documentElement;
+    if (store.theme) root.setAttribute("data-theme", store.theme);
+    else root.removeAttribute("data-theme");
+    const dark = store.theme === "dark";
+    const btn = document.getElementById("themeBtn");
+    btn.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#13151d" : "#f4f6fb");
   }
-  document.getElementById("themeBtn").addEventListener("click", () => {
-    store.theme = store.theme === "dark" ? "light" : "dark"; applyTheme(); save();
+  // Theme switch: the new theme spreads out in a circle from the toggle (View Transitions);
+  // browsers without it get a short colour fade; reduced motion switches instantly.
+  document.getElementById("themeBtn").addEventListener("click", (e) => {
+    const next = store.theme === "dark" ? "light" : "dark";
+    const flip = () => { store.theme = next; applyTheme(); save(); };
+    const root = document.documentElement;
+    if (reduceMotion) return flip();
+    if (!document.startViewTransition) {
+      root.classList.add("theme-fade");
+      flip();
+      setTimeout(() => root.classList.remove("theme-fade"), 450);
+      return;
+    }
+    const r = e.currentTarget.getBoundingClientRect();
+    const x = r.left + r.width / 2, y = r.top + r.height / 2;
+    const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    root.classList.add("theme-anim");
+    const t = document.startViewTransition(flip);
+    t.ready.then(() => {
+      root.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+        { duration: 620, easing: "cubic-bezier(.16, 1, .3, 1)", pseudoElement: "::view-transition-new(root)" }
+      );
+    });
+    t.finished.finally(() => root.classList.remove("theme-anim"));
   });
   document.getElementById("homeBtn").addEventListener("click", () => exitSession());
   const inSession = (on, narrow = false) => {
@@ -242,7 +270,7 @@
           </button>
           <button class="mode k-violet" data-act="quiz">
             <span class="bub">${ico("watch", 26)}</span>
-            <span><b>Practice test</b><small>Timed, with a full answer key</small></span>
+            <span><b>Practice test</b><small>Exam-style or mixed, timed, with answer key</small></span>
             <span class="end">${ico("chevron", 20)}</span>
           </button>
         </div>
@@ -299,20 +327,29 @@
   }
 
   // ───────────── QUIZ ─────────────
-  let quizCfg = { count: 10, timed: true };
+  let quizCfg = { count: 10, timed: true, style: "exam" };
+  const quizPool = () => (quizCfg.style === "exam" ? activeQs().filter((q) => q.exam) : activeQs());
   function sessionBar(inner) {
     return `<div class="sbar"><div class="wrap">
       <button class="icon-btn on-sign" data-x aria-label="Leave and go home">${ico("close", 24)}</button>${inner}</div></div>`;
   }
   function renderQuizSetup() {
     inSession(true, true);
-    const n = activeQs().length;
+    const nExam = activeQs().filter((q) => q.exam).length;
+    if (!nExam) quizCfg.style = "mixed";
+    const n = quizPool().length;
     const counts = [10, 20, 30].filter((c) => c < n).concat([n]);
     if (!counts.includes(quizCfg.count)) quizCfg.count = counts[0];
     app.innerHTML = `${sessionBar(`<span class="meta" style="margin-left:auto">${n} questions in play</span>`)}
       <div class="wrap">
         <h1 class="page-title">Practice test</h1>
         <p class="lede">No feedback until the end. Then you get a score and the full answer key.</p>
+        <div class="field"><h2 id="styH">Style</h2>
+          <div class="seg n2" role="group" aria-labelledby="styH">
+            <button data-style="exam" aria-pressed="${quizCfg.style === "exam"}" ${nExam ? "" : "disabled"}>Exam-style<span>${nExam} apply &amp; analyze questions</span></button>
+            <button data-style="mixed" aria-pressed="${quizCfg.style === "mixed"}">Mixed<span>All ${activeQs().length} questions</span></button>
+          </div>
+        </div>
         <div class="field"><h2 id="cntH">Questions</h2>
           <div class="seg n${Math.min(counts.length, 4)}" role="group" aria-labelledby="cntH" style="grid-template-columns:repeat(${counts.length},1fr)">${counts.map((c) => `<button data-count="${c}" aria-pressed="${quizCfg.count === c}">${c === n ? "All " + c : c}</button>`).join("")}</div>
         </div>
@@ -324,12 +361,13 @@
     app.querySelector("[data-x]").onclick = () => exitSession();
     app.querySelectorAll("[data-count]").forEach((b) => b.onclick = () => { quizCfg.count = +b.dataset.count; renderQuizSetup(); });
     app.querySelectorAll("[data-timed]").forEach((b) => b.onclick = () => { quizCfg.timed = b.dataset.timed === "1"; renderQuizSetup(); });
+    app.querySelectorAll("[data-style]").forEach((b) => b.onclick = () => { quizCfg.style = b.dataset.style; renderQuizSetup(); });
     app.querySelector("[data-go]").onclick = startQuiz;
     window.scrollTo(0, 0);
   }
   function startQuiz() {
-    const ids = shuffle(activeQs()).slice(0, quizCfg.count).map((q) => q.id);
-    S = { mode: "quiz", title: "Practice test", queue: ids.slice(), order: ids, total: ids.length, idx: 0,
+    const ids = shuffle(quizPool()).slice(0, quizCfg.count).map((q) => q.id);
+    S = { mode: "quiz", title: quizCfg.style === "exam" ? "Exam-style test" : "Practice test", queue: ids.slice(), order: ids, total: ids.length, idx: 0,
           answers: {}, answered: false, answeredCount: 0, start: Date.now(), elapsed: 0 };
     if (quizCfg.timed) {
       timerId = setInterval(() => {

@@ -291,6 +291,18 @@ body.in-session > .top { display: none; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
 ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .18s; }
+/* theme switch: circular reveal instead of the screen crossfade */
+html.theme-anim::view-transition-old(root), html.theme-anim::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+html.theme-anim::view-transition-old(root) { z-index: 1; }
+html.theme-anim::view-transition-new(root) { z-index: 2; }
+html.theme-fade, html.theme-fade * { transition: background-color .4s ease, color .4s ease, border-color .4s ease, box-shadow .4s ease !important; }
+
+/* toggle icon: moon in light, sun in dark, rotating through each other */
+.theme-btn { display: grid; place-items: center; }
+.theme-btn svg { grid-area: 1 / 1; transition: transform .55s cubic-bezier(.16, 1, .3, 1), opacity .3s ease; }
+.theme-btn .i-sun { opacity: 0; transform: rotate(-120deg) scale(.4); color: var(--xp); }
+:root[data-theme="dark"] .theme-btn .i-sun { opacity: 1; transform: none; }
+:root[data-theme="dark"] .theme-btn .i-moon { opacity: 0; transform: rotate(120deg) scale(.4); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
